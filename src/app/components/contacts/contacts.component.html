@@ -1,0 +1,29 @@
+<h1>Contacts</h1>
+
+<app-contact-form #contactForm (onSubmit)="submitContact($event)"></app-contact-form>
+
+<div class="input-group col-md-5 pl-0 my-lg-4 my-2">
+    <span class="input-group-addon">Filter by name</span>
+    <input type="text" [(ngModel)]="filter" class="form-control" />
+</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+        <th>Index</th>
+        <th>Old Index</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contact of contacts; let i = index" [contactRow]="contact"
+        (onEdit)="contactForm.edit(contact)"
+        (onRemove)="remove(contact)"
+        [index]="i">
+
+    </tr>
+</table>
+
+<router-outlet></router-outlet>
