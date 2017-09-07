@@ -4,6 +4,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { ContactsService } from "./services/contacts.service";
 import { HttpClientModule } from "@angular/common/http";
 import {PageTitleService} from './services/page-title.service';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import {PageTitleService} from './services/page-title.service';
       FilterPipe
   ], providers: [
       ContactsService,
-      PageTitleService
+      PageTitleService,
+        AuthService
   ], exports: [
       FilterPipe
   ]
