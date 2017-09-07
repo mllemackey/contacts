@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Injector} from '@angular/core';
 import { ContactsService } from "../../shared/services/contacts.service";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Contact } from "../../shared/contact.model";
@@ -12,9 +12,12 @@ export class ContactsComponent{
 
     private contacts: any = [];
     private filter: string = '';
+    private contactsService: ContactsService;
 
-    constructor(private contactsService: ContactsService){
-        contactsService.getContacts().subscribe(data => {
+    constructor( private injector: Injector ){
+
+        this.contactsService = this.injector.get(ContactsService);
+        this.contactsService.getContacts().subscribe(data => {
             this.contacts = data;
         });
 

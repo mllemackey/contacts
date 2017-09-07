@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import { ContactsService } from "../../../shared/services/contacts.service";
 import {PageTitleService} from '../../../shared/services/page-title.service';
+import {Contact} from '../../../shared/contact.model';
 @Component({
   selector: 'app-contact-details',
   templateUrl: './contact-details.component.html'
 })
 export class ContactDetailsComponent implements OnInit {
 
-  private contact: any = {};
+  private contact: any = '';
 
   constructor(private route: ActivatedRoute, private contactsService: ContactsService,
               private pageTitleService: PageTitleService) {

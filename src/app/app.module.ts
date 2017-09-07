@@ -13,6 +13,8 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { ContactDetailsComponent } from './components/contacts/contact-details/contact-details.component';
 import { ContactFormComponent } from './components/contacts/contact-form/contact-form.component';
 import { ContactRowComponent } from './components/contacts/contact-row/contact-row.component';
+import {ContactsService} from './shared/services/contacts.service';
+import { LoginComponent } from './components/auth/login.component';
 
 
 
@@ -24,7 +26,8 @@ import { ContactRowComponent } from './components/contacts/contact-row/contact-r
       MessagesComponent,
       ContactDetailsComponent,
       ContactFormComponent,
-      ContactRowComponent
+      ContactRowComponent,
+      LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,10 @@ import { ContactRowComponent } from './components/contacts/contact-row/contact-r
     CustomFormsModule
 
   ],
-  providers: [],
+  providers: [
+      { provide: 'ContactsService1', useClass: ContactsService },
+      { provide: 'APP_CONFIG_DEFAULT_TITLE', useValue: 'Some default title' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

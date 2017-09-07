@@ -21,7 +21,6 @@ export class ContactRowComponent {
   constructor() { }
 
   ngOnChanges(changes: {[index: string]: SimpleChange}){
-      console.log(changes);
       if(changes.index.previousValue){
           this.oldIndex = changes.index.previousValue;
       }
