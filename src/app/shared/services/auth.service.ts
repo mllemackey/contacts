@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, Observer } from 'rxjs';
 
 @Injectable()
@@ -20,6 +20,11 @@ export class AuthService {
                 return o.error(err);
             });
         });
+    }
+
+    getRequestHeaders(){
+        let token = window.localStorage.getItem('token');
+        return new HttpHeaders().set('Authorization', `Bearer ${token}`);
     }
 
 }
